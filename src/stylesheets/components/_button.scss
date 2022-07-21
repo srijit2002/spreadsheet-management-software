@@ -1,0 +1,31 @@
+@use "../abstracts/" as *;
+.button {
+  background-color: transparent;
+  border: 0px solid;
+  outline: 0px solid;
+  cursor: pointer;
+  padding: 0.3em;
+  &__nav {
+    min-width: 7ch;
+    font-family: map-get($font, primary);
+    color: map-get($colors, secondary);
+    transition: background-color 0.5s ease;
+    font-size: 0.92rem;
+    padding: 0.35em 0.87em;
+    &:hover {
+      background-color: map-get($colors, secondary);
+      color: map-get($colors, primary);
+    }
+  }
+  &__action{
+    padding: 0.3em;
+    min-width: 4ch;
+    border-radius: 0.3em;
+    &:hover {
+      background-color: #fdfcf9;
+    }
+    i{
+      font-size: 1.13rem;
+    }
+  }
+}

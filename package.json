@@ -1,0 +1,15 @@
+{
+  "name": "spread-sheet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev-server-sass": "sass --watch src/stylesheets/main.scss  public/css/main.css"
+  },
+  "keywords": [],
+  "author": "Srijit Mondal",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.53.0"
+  }
+}

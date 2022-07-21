@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+    integrity="sha384-eoTu3+HydHRBIjnCVwsFyCpUDZHZSFKEJD0mc3ZqSBSb6YhZzRHeiomAUWCstIWo" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script&family=Fredoka+One&family=Lobster&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./public/css/main.css" />
+  <title>Spread Sheet Management Programme</title>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="navbar_button_container">
+      <button class="button button__nav">File</button>
+      <button class="button button__nav">Home</button><button class="button button__nav">Insert</button><button
+        class="button button__nav">Layout</button><button class="button button__nav">Help</button>
+    </div>
+  </nav>
+  <section class="page__action__container">
+    <section class="page__action__edit__option">
+      <button class="button button__action" id="copyButton">
+        <i class="bi bi-clipboard"></i>
+      </button>
+      <button class="button button__action" id="cutButton">
+        <i class="bi bi-scissors"></i>
+      </button>
+      <button class="button button__action" id="pasteButton">
+        <i class="bi bi-clipboard-plus"></i>
+      </button>
+      <select name="fonts" id="font_family_selector" class="option_seletors">
+        <option>Roboto</option>
+        <option>Times New Roman</option>
+        <option>Bebas Neue</option>
+        <option>Lobster</option>
+      </select>
+      <input type="number" id="font_size_selector" value="13" min="13" max="24" class="option_seletors" />
+      <button class="button button__action" id="boldIcon">
+        <i class="bi bi-type-bold"></i>
+      </button>
+      <button class="button button__action" id="italicIcon">
+        <i class="bi bi-type-italic"></i>
+      </button>
+      <button class="button button__action" id="underLineIcon">
+        <i class="bi bi-type-underline"></i>
+      </button>
+      <button class="button button__action" id="backgroundColorIcon">
+        <input type="color" id="backgroundColor" value="#FFFFFF">
+      </button>
+      <button class="button button__action" id="textLeftIcon">
+        <i class="bi bi-text-left"></i>
+      </button>
+      <button class="button button__action" id="textCenterIcon">
+        <i class="bi bi-text-center"></i>
+      </button>
+      <button class="button button__action" id="textRightIcon">
+        <i class="bi bi-text-right"></i>
+      </button>
+    </section>
+    <section class="page__action__container__formula__bar">
+      <input type="text" class="page__action__container__formula__bar__cell__address" id="cell_address_selector" />
+      <img class="page__action__container__formula__bar__function__icon"
+        src="https://img.icons8.com/ios/50/000000/formula-fx.png" />
+      <input type="text" class="page__action__container__formula__bar__formula" />
+    </section>
+  </section>
+  <main class="sheet__container" id="sheetContainer">
+
+  </main>
+  <footer class="page__footer">
+    <button class="button button__action">
+      <i class="bi bi-file-earmark-plus"> </i>
+    </button>
+    <input type="text" class="page__footer__sheet__name option_seletors" value="sheet-1" />
+  </footer>
+  <script src="./src/scripts/constants.js"></script>
+  <script src="./src/scripts/cellStyle.js"></script>
+  <script src="./src/scripts/sheetStructure.js"></script>
+  <script src="./src/scripts/functions.js"></script>
+</body>
+
+</html>

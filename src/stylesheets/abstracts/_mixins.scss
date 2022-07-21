@@ -1,0 +1,12 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+@mixin stylesForPseudoElement($content:"",$width:100%,$height,$top,$left) {
+  content:$content;
+  position: absolute;
+  top:$top;
+  left:$left;
+  width:$width;
+  height:$height;
+}

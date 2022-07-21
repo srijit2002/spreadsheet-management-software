@@ -1,0 +1,23 @@
+$colors:(
+  'primary':#377D71,
+  'secondary':#fafafa,
+  'tertiary':#F7F7F7,
+  'cell-border':#bfbfbf
+);
+
+$font:(
+  'primary':'Open Sans',
+  'secondary':'Roboto'
+);
+
+$transitionTime: (
+  'slo': 1s,
+  'med': 500ms,
+  'fas': 200ms,
+);
+$zIndex:(
+  'below':-1,
+  'normal':1,
+  'above':2,
+  'top':3
+);

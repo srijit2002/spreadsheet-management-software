@@ -1,0 +1,29 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes.
+// -----------------------------------------------------------------------------
+@use "../abstracts" as *;
+.active {
+  border: 1.5px solid map-get($colors, primary)!important;
+}
+.icon--active{
+  background-color: #F2EBE9!important;
+  border: 1px solid map-get($colors,cell-border)!important;
+}
+.font--bold{
+  font-weight: bold!important;
+}
+.font--italic{
+  font-style: italic!important;
+}
+.text--underline{
+  text-decoration: underline!important;
+}
+.text__align--left{
+  text-align: left!important;
+}
+.text__align--center{
+  text-align: center!important;
+}
+.text__align--right{
+  text-align: right!important;
+}

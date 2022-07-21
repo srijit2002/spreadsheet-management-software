@@ -1,0 +1,16 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+@use "../abstracts" as *;
+@use "../base" as *;
+
+.page__footer{
+    background-color: map-get($colors,tertiary);
+    display: flex;
+    align-items: center;
+    padding-left: 1em;
+    height: 3em;
+    &__sheet__name{
+        display: inline;
+    }
+}

@@ -1,0 +1,47 @@
+@use "../abstracts" as *;
+@use "../base" as *;
+
+.sheet__container {
+  position: relative;
+  height: calc(100vh - 11em);
+  display: flex;
+  overflow: scroll;
+  &__row__address {
+    background-color: map-get($colors, tertiary);
+    position: sticky;
+    left: 0;
+    min-height: 1.7em;
+  }
+  &__column__address {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.dummy {
+  background-color: #616161 !important;
+}
+.cell {
+  display: flex;
+  height: 1.9em;
+  border: 0.9px solid map-get($colors, cell-border);
+  font-size: 13px;
+  &__data {
+    width: 100%;
+    outline: 0px;
+    padding: 0.2em;
+  }
+  &__address {
+    justify-content: center;
+    align-items: center;
+    background-color: map-get($colors, tertiary);
+    font-family: map-get($font, primary);
+    &__col {
+      width: 10ch;
+    }
+    &__row {
+      width: 5ch;
+    }
+  }
+}
+
