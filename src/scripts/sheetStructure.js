@@ -20,6 +20,7 @@ for (let i = 1; i <= 100; i++) {
   addressCell.innerText = i;
   sheetAddressRow.appendChild(addressCell);
 }
+let prevActive = null;
 sheetContainer.appendChild(sheetAddressRow);
 for (let col = 1; col <= COL; col++) {
   let sheetColumn = document.createElement("section");
@@ -30,19 +31,24 @@ for (let col = 1; col <= COL; col++) {
   sheetColumn.appendChild(columnAddress);
   for (let row = 1; row <= ROW; row++) {
     let cell = document.createElement("input");
+    cell.setAttribute("value","");
     cell.setAttribute("class", "cell cell__data");
     cell.setAttribute("data-row", row);
     cell.setAttribute("data-col", col);
+    cell.setAttribute("data-pos",`${row} ${col}`)
     sheetColumn.appendChild(cell);
     cell.addEventListener("click", () => {
       setAddressOnClick(cell, row, col);
       activeIcons(row, col);
       cell.style.fontFamily=FONT_FAMILY_SELECTOR.options[FONT_FAMILY_SELECTOR.selectedIndex].text;
     });
+    cell.addEventListener("change",(e)=>{
+      console.log(row," ",col);
+      updateCellValue(row,col,e.target.value);
+    })
   }
   sheetContainer.appendChild(sheetColumn);
 }
-let prevActive = null;
 function setAddressOnClick(cell, row, col) {
   if (prevActive != null) {
     prevActive.classList.remove("active");
@@ -177,3 +183,7 @@ document.getElementById("font_size_selector").addEventListener("change",(e)=>{
     cell.style.fontSize=`${e.target.value}px`;
   })
 })
+
+function updateCellValue(row,col,newValue){
+  sheet[row-1][col-1].value=newValue;
+}
