@@ -25,6 +25,15 @@
 </head>
 
 <body>
+  <div class="alert__container hide" id="alertBox">
+    <div class="alert alert-danger" role="alert">
+      <p id="messageContainer">This is a danger alert</p>
+      <button id="cancelAlertButton">
+        <i class="bi bi-x"></i>
+      </button>
+    </div>
+  </div>
+
   <nav class="navbar">
     <div class="navbar_button_container">
       <button class="button button__nav">File</button>
@@ -75,8 +84,8 @@
     <section class="page__action__container__formula__bar">
       <input type="text" class="page__action__container__formula__bar__cell__address" id="cell_address_selector" />
       <img class="page__action__container__formula__bar__function__icon"
-        src="https://img.icons8.com/ios/50/000000/formula-fx.png" />
-      <input type="text" class="page__action__container__formula__bar__formula" id="formulaBar"/>
+        src="https://img.icons8.com/ios/50/000000/formula-fx.png" id="traceIcon"/>
+      <input type="text" class="page__action__container__formula__bar__formula" id="formulaBar" />
     </section>
   </section>
   <main class="sheet__container" id="sheetContainer">
@@ -88,6 +97,7 @@
     </button>
     <input type="text" class="page__footer__sheet__name option_seletors" value="sheet-1" />
   </footer>
+  <script src="./src/scripts/alert.js"></script>
   <script src="./src/scripts/constants.js"></script>
   <script src="./src/scripts/cellStyle.js"></script>
   <script src="./src/scripts/sheetStructure.js"></script>

@@ -7,7 +7,7 @@ class ArraySet{
     this.set.add(JSON.stringify(arr));
   }
   delete(arr) {
-    this.set.delete(arr.toString(arr));
+    this.set.delete(JSON.stringify(arr));
   }
   getAllAsArray(){
     let data=[];
@@ -15,6 +15,9 @@ class ArraySet{
       data.push(JSON.parse(value));
     })
     return data;
+  }
+  contains(arr){
+    return this.set.has(JSON.stringify(arr));
   }
 }
 for (let row = 0; row < ROW; row++) {

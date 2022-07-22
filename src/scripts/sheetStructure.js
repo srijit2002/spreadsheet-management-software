@@ -1,4 +1,4 @@
-
+const FORMULA_BAR = document.getElementById("formulaBar");
 const BOLD_ICON = document.getElementById("boldIcon");
 const ITALIC_ICON = document.getElementById("italicIcon");
 const UNDERLINE_ICON = document.getElementById("underLineIcon");
@@ -31,7 +31,6 @@ for (let col = 1; col <= COL; col++) {
   sheetColumn.appendChild(columnAddress);
   for (let row = 1; row <= ROW; row++) {
     let cell = document.createElement("input");
-    cell.setAttribute("value","");
     cell.setAttribute("class", "cell cell__data");
     cell.setAttribute("data-row", row);
     cell.setAttribute("data-col", col);
@@ -41,10 +40,11 @@ for (let col = 1; col <= COL; col++) {
       setAddressOnClick(cell, row, col);
       activeIcons(row, col);
       cell.style.fontFamily=FONT_FAMILY_SELECTOR.options[FONT_FAMILY_SELECTOR.selectedIndex].text;
+      FORMULA_BAR.value=sheet[row-1][col-1].formula;
     });
-    cell.addEventListener("change",(e)=>{
-      console.log(row," ",col);
-      updateCellValue(row,col,e.target.value);
+    cell.addEventListener("blur",(e)=>{
+      updateCellValue(row-1,col-1,e.target.value);
+      updateDependentCells(row-1, col-1);
     })
   }
   sheetContainer.appendChild(sheetColumn);
@@ -185,5 +185,5 @@ document.getElementById("font_size_selector").addEventListener("change",(e)=>{
 })
 
 function updateCellValue(row,col,newValue){
-  sheet[row-1][col-1].value=newValue;
+  sheet[row][col].value=newValue;
 }

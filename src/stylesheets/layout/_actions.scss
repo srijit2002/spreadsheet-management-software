@@ -26,6 +26,7 @@
         &__function__icon{
             max-width: 3ch;
             height: 3ch;
+            cursor: pointer;
         }
         &__formula{
             flex: 1;
@@ -33,4 +34,7 @@
             max-width: 89%;
         }
     }
+}
+.trace__icon{
+    cursor: pointer;
 }
