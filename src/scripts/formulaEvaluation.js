@@ -3,7 +3,7 @@ formulaBar.addEventListener("keydown", (event) => {
     let [result, isSuccess] = evaluateFormula(event.target.value);
     let row = Number(prevActive.getAttribute("data-row")) - 1;
     let col = Number(prevActive.getAttribute("data-col")) - 1;
-    if (!isSuccess||isNaN(result)) {
+    if (!isSuccess || isNaN(result)) {
       showAlert(
         "Please provide a valid expression and add space between each operator and operand"
       );
@@ -12,13 +12,19 @@ formulaBar.addEventListener("keydown", (event) => {
       let prevDependencies = getDependencies(sheet[row][col].formula);
       removeDependencyFromParent(prevDependencies, row, col);
       addDependencyToParent(currentDependencies, row, col);
-      let path=[];
-      let containsCycle = detectCyle(row, col, new ArraySet(), new ArraySet(),path);
+      let path = [];
+      let containsCycle = detectCyle(
+        row,
+        col,
+        new ArraySet(),
+        new ArraySet(),
+        path
+      );
       if (containsCycle) {
         removeDependencyFromParent(currentDependencies, row, col);
         addDependencyToParent(prevDependencies, row, col);
         showAlert("Your formula contains cycle");
-        console.log(path);
+        showCyclicPath(path);
       } else {
         updateDependentCells(row, col);
         sheet[row][col].formula = event.target.value;
@@ -113,7 +119,7 @@ function detectCyle(row, col, visited, dfs_visited, path) {
   let children = sheet[row][col].children.getAllAsArray();
   let flag = false;
   children.forEach((child) => {
-    if (detectCyle(child[0], child[1], visited, dfs_visited,path)) {
+    if (detectCyle(child[0], child[1], visited, dfs_visited, path)) {
       flag = true;
       return;
     }
@@ -123,4 +129,32 @@ function detectCyle(row, col, visited, dfs_visited, path) {
     path?.pop();
   }
   return flag;
+}
+
+function showCyclicPath(paths) {
+  let time = 10;
+  let offset = 700;
+  paths.forEach(([row, col]) => {
+    let cell = document.querySelector(`[data-pos="${row + 1} ${col + 1}"]`);
+    setTimeout(() => {
+      cell.classList.add("part__of__cycle");
+    }, time);
+    time += offset;
+  });
+
+  let row = paths[paths.length - 1][0];
+  let col = paths[paths.length - 1][1];
+  let cell = document.querySelector(`[data-pos="${row + 1} ${col + 1}"]`);
+  setTimeout(() => {
+    cell.classList.add("start__of__cycle");
+  }, time-10);
+  time+=1000;
+  paths.forEach(([row, col]) => {
+    let cell = document.querySelector(`[data-pos="${row + 1} ${col + 1}"]`);
+    setTimeout(() => {
+      cell.classList.remove("part__of__cycle");
+      cell.classList.remove("start__of__cycle");
+    }, time);
+    time += offset;
+  });
 }
